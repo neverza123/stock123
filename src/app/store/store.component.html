@@ -1,0 +1,63 @@
+
+  <form [formGroup]="addForm" (ngSubmit)="addSubmit()" >
+    <input type="text" formControlName="stock_part_no" placeholder="stock_part_no">
+    <input type="text" formControlName="stock_part_name" placeholder="stock_part_name">
+    <input type="text" formControlName="stock_count" placeholder="stock_count">
+    <input type="date" formControlName="stock_date" placeholder="stock_date">
+    <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+
+
+<table datatable [dtOptions]="dtOptions" class="table table-striped" style="width: 80%;" >
+        <thead>
+          <tr style="background-color:#157DEC" >
+            <th style="text-align:center">ITEM</th>
+            <th style="text-align:center" rowspan='2'>PART DRAWING NO </th>
+            <th style="text-align:center" rowspan='2'>PART NAME</th>
+            <th style="text-align:center">STOCK</th>
+            <th style="text-align:center">INPUT</th>
+            <th style="text-align:center">EXC</th>
+            <th style="text-align:center">ADJ/QA</th>
+            <th style="text-align:center">BALANCE</th>
+            <th style="text-align:center" rowspan='2'>REMARK</th>
+          </tr>
+          <tr style="background-color:#157DEC">
+            <th style="text-align:center">NO</th>
+            <th style="text-align:center">DATE</th>
+            <th style="text-align:center">DATE</th>
+            <th style="text-align:center">DATE</th>
+            <th style="text-align:center">DATE</th>
+            <th style="text-align:center">DATE</th>
+          </tr>
+
+
+        </thead>
+        <tbody *ngIf="stocks?.length != 0">
+          <tr *ngFor="let stock of stocks" >
+            <td style="text-align:center">{{ stock.id }}</td>
+            <td style="text-align:center">{{ stock.stock_part_no }}</td>
+              <td style="text-align:center"> {{ stock.stock_part_name }}</td>
+                <td style="text-align:center"> {{ stock.stock_count }}</td>
+                <TD></TD>
+                <TD></TD>
+                <TD></TD>
+                <TD></TD>
+                <TD></TD>
+
+
+
+          </tr>
+        </tbody>
+        <tbody *ngIf="stocks?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        </tbody>
+
+
+      </table>
+
+
+
+

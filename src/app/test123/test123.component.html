@@ -1,0 +1,35 @@
+<p>test123 works!</p>
+
+
+<table datatable [dtOptions]="dtOptions" class="table table-striped">
+  <thead>
+    <tr style="background-color:#157DEC">
+      <th style="text-align:center">No.</th>
+      <th style="text-align:center">Picture</th>
+      <th style="text-align:center">Reference</th>
+      <th style="text-align:center">Balance</th>
+      <th style="text-align:center">Manage</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody *ngIf="stocks?.length != 0">
+    <tr *ngFor="let stock of stocks" >
+      <td style="text-align:center">{{ stock.id }}</td>
+      <td></td>
+      <td style="tex-align:left" ><b>Reference : </b>{{ stock.stock_part_no }} <BR> <b>Description : </b>{{ stock.stock_part_name }}<BR><b> Brand : </b> {{ stock.stock_count }}</td>
+
+
+      <td style="text-align:center">{{ stock.stock_date }}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="stocks?.length == 0">
+    <tr>
+      <td colspan="3" class="no-data-available">No data!</td>
+    </tr>
+  </tbody>
+
+
+</table>
+
